@@ -1,0 +1,45 @@
+Completed download /home/ec2-user/HCP/fmriresults01/s0099_02_MR/ProcessingInfo/QuNex/processing/logs/comlogs/done_setupHCP_s0099_02_MR_2021-05-21.08.15.33.306716.log
+Starting download: /home/ec2-user/HCP/fmriresults01/s0099_02_MR/T1w/Diffusion/eddylogs/eddy_unwarped_images.eddy_outlier_n_stdev_map.partial
+Completed download /home/ec2-user/HCP/fmriresults01/s0099_02_MR/T1w/Diffusion/eddylogs/eddy_unwarped_images.eddy_outlier_n_stdev_map
+Starting download: /home/ec2-user/HCP/fmriresults01/s0099_02_MR/T1w/Diffusion/eddylogs/eddy_unwarped_images.eddy_movement_over_time.partial
+Completed download /home/ec2-user/HCP/fmriresults01/s0099_02_MR/T1w/Diffusion/eddylogs/eddy_unwarped_images.eddy_movement_over_time
+Starting download: /home/ec2-user/HCP/fmriresults01/s0099_02_MR/T1w/Diffusion/QC/cnr0001.nii.gz.png.partial
+Completed download /home/ec2-user/HCP/fmriresults01/s0099_02_MR/T1w/Diffusion/QC/cnr0001.nii.gz.png
+Starting download: /home/ec2-user/HCP/fmriresults01/s0099_02_MR/T1w/Diffusion/QC/qc.json.partial
+Completed download /home/ec2-user/HCP/fmriresults01/s0099_02_MR/T1w/Diffusion/QC/qc.json
+Starting download: /home/ec2-user/HCP/fmriresults01/s0102_01_MR/ProcessingInfo/QuNex/processing/logs/comlogs/done_setupHCP_s0102_01_MR_2021-05-21.08.21.52.644834.log.partial
+Completed download /home/ec2-user/HCP/fmriresults01/s0102_01_MR/ProcessingInfo/QuNex/processing/logs/comlogs/done_setupHCP_s0102_01_MR_2021-05-21.08.21.52.644834.log
+Starting download: /home/ec2-user/HCP/fmriresults01/s0102_01_MR/ProcessingInfo/s0102_01_MR.DiffusionPreprocessing.PROCESS_DATA_job.sh.e10166615.partial
+Completed download /home/ec2-user/HCP/fmriresults01/s0102_01_MR/ProcessingInfo/s0102_01_MR.DiffusionPreprocessing.PROCESS_DATA_job.sh.e10166615
+Starting download: /home/ec2-user/HCP/fmriresults01/s0102_01_MR/ProcessingInfo/processing/batch_Diffusion_preproc.txt.partial
+Completed download /home/ec2-user/HCP/fmriresults01/s0102_01_MR/ProcessingInfo/processing/batch_Diffusion_preproc.txt
+Starting download: /home/ec2-user/HCP/fmriresults01/s0102_01_MR/T1w/Diffusion/fov_mask.nii.gz.partial
+Completed download /home/ec2-user/HCP/fmriresults01/s0102_01_MR/T1w/Diffusion/fov_mask.nii.gz
+
+Download Progress Report [May 02 2023 17:32:16]:
+    3200/3250 queued files downloaded so far.
+    Last 50 files contained ~ 565.71MB bytes and finished in 0:00:20 (Hours:Minutes:Seconds).
+    Avg download rate (in bits per second) for the last 50 files is ~ 226.28Mbps.
+    Download has been in progress for 0:25:40 (Hours:Minutes:Seconds).
+
+
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/bin/downloadcmd", line 8, in <module>
+    sys.exit(main())
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/NDATools/clientscripts/downloadcmd.py", line 200, in main
+    s3Download.start()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/NDATools/Download.py", line 352, in start
+    file_id_to_cred_list = self.get_presigned_urls(list(package_file_id_list))
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/NDATools/Download.py", line 1043, in get_presigned_urls
+    tmp = post_request(url,  payload=id_list, auth=self.auth,
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/NDATools/Utils.py", line 273, in post_request
+    return _send_prepared_request(req.prepare(), timeout=timeout, deserialize_handler=deserialize_handler, error_handler=error_handler)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/NDATools/Utils.py", line 239, in _retry
+    tmp = func(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/NDATools/Utils.py", line 262, in _send_prepared_request
+    error_handler(tmp)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/NDATools/Utils.py", line 84, in reraise_status
+    response.raise_for_status()
+  File "/usr/lib/python3.9/site-packages/requests/models.py", line 943, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 504 Server Error: Gateway Time-out for url: https://nda.nih.gov/api/package/1215110/files/batchGeneratePresignedUrls
