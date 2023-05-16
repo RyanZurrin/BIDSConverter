@@ -1,0 +1,20 @@
+#!/bin/bash
+src_dir=$1
+dest_dir=$2
+
+# iterate through each subject directory
+find "$src_dir" -type d -regex ".*/.*_MR" | while read subject_dir; do
+    # iterate through each json file in the subject directory
+    find "$subject_dir" -type f -name "*.json" | while read json_file; do
+        # get the filename of the json file
+        json_filename=$(basename "$json_file")
+        # get the directory of the json file
+        json_dir=$(dirname "$json_file")
+        # get the directory of the json file relative to the source directory
+        json_dir_rel=$(realpath --relative-to="$src_dir" "$json_dir")
+        # create the destination directory if it doesn't exist
+        mkdir -p "$dest_dir/$json_dir_rel"
+        # move the json file to the destination directory
+        mv "$json_file" "$dest_dir/$json_dir_rel/$json_filename"
+    done
+done

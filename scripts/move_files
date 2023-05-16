@@ -12,7 +12,7 @@ for subject in "$src_dir"/*/; do
     for suffix in "${suffixes[@]}"; do
         subject_basename="${subject_basename%$suffix}"
 
-        new_subject_path="$dest_dir/$subject_basename/derivatives/dwipreproc/Diffusion"
+        new_subject_path="$dest_dir/$subject/derivatives/dwipreproc/Diffusion"
 
         # Create destination folder structure
         mkdir -p "$new_subject_path"
