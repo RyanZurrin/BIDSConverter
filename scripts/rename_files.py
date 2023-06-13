@@ -4,7 +4,6 @@ import os
 import shutil
 import argparse
 
-
 def main(input_dir, output_dir):
     replacements = {
         'sub-': '',
@@ -28,10 +27,10 @@ def main(input_dir, output_dir):
         shutil.copy(old_file_path, new_file_path)
         print(f'Copied file {old_file_path} to {new_file_path}')
 
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("input_dir", help="Directory with the original files")
     parser.add_argument("output_dir", help="Directory to save the renamed files")
     args = parser.parse_args()
     main(args.input_dir, args.output_dir)
+
