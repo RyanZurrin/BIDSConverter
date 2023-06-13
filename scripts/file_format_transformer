@@ -1,0 +1,31 @@
+#!/bin/bash
+
+if [ "$#" -ne 1 ]; then
+  echo "Usage: $0 <source_directory>"
+  exit 1
+fi
+
+# Source directory
+src_dir=$1
+
+# Iterate over files in source directory
+for file in "$src_dir"/*; do
+  # Extract base name of file
+  base=$(basename "$file")
+
+  # Extract subject and session
+  subject=$(echo "$base" | cut -d'_' -f2)
+  session=$(echo "$base" | cut -d'_' -f3 | cut -d'-' -f2)
+
+  # New file name
+  new_file_name="${subject}_${session}_EdEp$(echo "$base" | cut -d'_' -f6)"
+
+  # New directory name
+  new_dir_name="${subject}_$(printf "%02d" "$session")_MR/harmonization"
+
+  # Create new directory if it does not exist
+  mkdir -p "$new_dir_name"
+
+  # Move (and rename) the file
+  mv "$file" "$new_dir_name/$new_file_name"
+done
